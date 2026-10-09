@@ -1,0 +1,26 @@
+# Python temporary files
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.aws/
+
+# Large raw groundwater dataset
+data/groundwater_2026.csv
+
+# Backups and temporary audits
+backend/backend_backup/
+backend/*_backup.py
+*audit_output.txt
+
+# Local temporary files
+.DS_Store
+Thumbs.db
+backend/*_pre_audit.py
