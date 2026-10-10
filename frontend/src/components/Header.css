@@ -1,0 +1,117 @@
+.site-header {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy-900);
+  border-bottom: 3px solid var(--teal-500);
+  color: #fff;
+}
+
+
+.site-header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.brand__mark {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--teal-600);
+  color: #fff;
+  flex: none;
+}
+
+.brand__name {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.brand__tagline {
+  padding-left: 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  color: #b9cde0;
+  font-size: 14px;
+}
+
+.proto-tag {
+  flex: none;
+  padding: 4px 12px;
+  border: 1px solid var(--sand-500);
+  border-radius: 999px;
+  color: #f0cf8f;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.site-header__intro {
+  padding: 22px 0 26px;
+  max-width: 760px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--cyan-400);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.site-header h1 {
+  color: #fff;
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 500;
+}
+
+.lede {
+  margin: 10px 0 0;
+  color: #b9cde0;
+  font-size: 16px;
+  max-width: 62ch;
+}
+
+@media (max-width: 720px) {
+  .brand__tagline { display: none; }
+  .site-header__intro { padding: 28px 0 32px; }
+}
+
+
+/* Keep header content above the decorative artwork */
+.site-header__content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Subtle water-inspired contour lines */
+.contours {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--cyan-400);
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to right, transparent 25%, #000 75%);
+  mask-image: linear-gradient(to right, transparent 25%, #000 75%);
+}
+
+@media (max-width: 720px) {
+  .contours {
+    opacity: 0.6;
+  }
+}

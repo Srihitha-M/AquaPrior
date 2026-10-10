@@ -1,0 +1,29 @@
+.scope-banner {
+  background: var(--teal-50);
+  border-bottom: 1px solid var(--cyan-100);
+}
+
+.scope-banner__inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.scope-banner__icon {
+  flex: none;
+  margin-top: 3px;
+  color: var(--teal-700);
+}
+
+.scope-banner p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.scope-banner strong {
+  color: var(--navy-900);
+  font-weight: 600;
+}
