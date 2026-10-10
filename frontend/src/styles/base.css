@@ -8,7 +8,21 @@ body {
   font-size: 15px;
   line-height: 1.55;
   color: var(--ink);
-  background: var(--bg);
+
+  background:
+    radial-gradient(
+      900px 500px at 100% 0%,
+      rgba(79, 209, 220, 0.14),
+      transparent 60%
+    ),
+    radial-gradient(
+      700px 500px at 0% 40%,
+      rgba(20, 134, 138, 0.08),
+      transparent 60%
+    ),
+    var(--bg);
+
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
 }
 

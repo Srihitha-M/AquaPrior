@@ -1,42 +1,56 @@
 
 :root {
-  /* Ocean navy / ink */
-  --navy-950: #0a2129;
-  --navy-900: #102f3a;
-  --navy-700: #1d4756;
-  --ink: #17323d;
-  --ink-soft: #4b6670;
+  /* Deep ocean */
+  --navy-950: #06222b;
+  --navy-900: #0a3340;
+  --navy-700: #14566a;
+
+  /* Text */
+  --ink: #12303a;
+  --ink-soft: #476069;
   --ink-faint: #7b9099;
 
-  /* Water teal */
-  --teal-700: #126466;
-  --teal-600: #187f80;
-  --teal-500: #2a9a9a;
-  --cyan-400: #5cc3c3;
-  --cyan-100: #cfe8e3;
-  --teal-50: #e9f4f0;
-  --mist: #ddefea;
+  /* Aqua and cyan */
+  --teal-700: #0e6f73;
+  --teal-600: #14868a;
+  --teal-500: #1fa5a8;
+  --cyan-400: #4fd1dc;
+  --cyan-300: #8ee6ee;
+  --cyan-100: #cdeceb;
+  --teal-50: #e8f6f4;
+  --mist: #d9f0ec;
 
-  /* Amber caution accents */
+  /* Evidence warnings */
   --sand-700: #8a5a12;
   --sand-500: #d9a45d;
   --sand-100: #f6e8cf;
   --sand-50: #fbf5e8;
 
-  /* Surfaces */
-  --bg: #f7faf7;
+  /* Backgrounds */
+  --bg: #eef6f5;
   --surface: #ffffff;
-  --line: #dbe6e2;
-  --line-strong: #c2d3ce;
+  --line: #d5e5e2;
+  --line-strong: #b9d0cc;
 
   /* Typography */
-  --font-display: "Fraunces", Georgia, serif;
-  --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Poppins", system-ui, sans-serif;
+  --font-ui: "Inter", system-ui, sans-serif;
 
-  /* Shape and motion */
+  /* Shapes */
   --radius-sm: 8px;
-  --radius: 12px;
-  --radius-lg: 16px;
+  --radius: 14px;
+  --radius-lg: 20px;
+
+  /* Shadows */
+  --shadow-sm:
+    0 1px 2px rgba(10, 51, 64, 0.06),
+    0 4px 12px rgba(10, 51, 64, 0.05);
+
+  --shadow-md:
+    0 2px 4px rgba(10, 51, 64, 0.06),
+    0 12px 28px rgba(10, 51, 64, 0.1);
+
+  /* Animations */
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
   --dur: 220ms;
 }

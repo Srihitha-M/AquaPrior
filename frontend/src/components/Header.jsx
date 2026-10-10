@@ -1,34 +1,88 @@
-import { Droplets } from "lucide-react";
-import ContourLines from "./ContourLines";
+
+import { Link } from "react-router-dom";
 import "./Header.css";
 
-export default function Header() {
+const TOTAL_BOOKINGS = 712931;
+
+export default function Header({ data }) {
+  const areas = data?.areas ?? [];
+
+  const bookings = data
+    ? areas.reduce((sum, area) => sum + Number(area.bookings || 0), 0)
+    : null;
+
+  const share =
+    bookings === null
+      ? null
+      : (bookings / TOTAL_BOOKINGS) * 100;
+
   return (
-    <header className="site-header">
-      <ContourLines />
-      <div className="container">
-        <div className="site-header__bar">
-          <div className="brand">
-            <span className="brand__mark" aria-hidden="true">
-              <Droplets size={20} strokeWidth={2} />
-            </span>
-            <span className="brand__name">AquaPrior</span>
-            <span className="brand__tagline">Turning Water Data into Action.</span>
+    <header className="hero">
+      <div className="container hero__content">
+        <div className="hero__body">
+          <p className="eyebrow">
+            HYDERABAD WATER INTELLIGENCE
+          </p>
+
+          <h1>
+            Better water decisions
+            <br />
+            <span className="hl">begin with evidence.</span>
+          </h1>
+
+          <p className="lede">
+            Discover where engineers should investigate first,
+            understand the evidence behind every priority,
+            and identify what needs verification next.
+          </p>
+
+          <div className="hero__actions">
+            <Link to="/planner" className="hero__button">
+              Explore Priorities <span aria-hidden="true">↗</span>
+            </Link>
+
+            <Link to="/explore" className="hero__secondary">
+              Explore the Map <span aria-hidden="true">→</span>
+            </Link>
           </div>
-          <span className="proto-tag">Decision-support prototype</span>
+
+          <div className="impact">
+            <div className="impact__item">
+              <strong>{data ? areas.length : "—"}</strong>
+              <span>Areas selected</span>
+            </div>
+
+            <div className="impact__item">
+              <strong>
+                {bookings === null
+                  ? "—"
+                  : bookings.toLocaleString("en-IN")}
+              </strong>
+              <span>Selected tanker bookings</span>
+            </div>
+
+            <div className="impact__item">
+              <strong>
+                {share === null ? "—" : `${share.toFixed(1)}%`}
+              </strong>
+              <span>Share of all Jun–Aug bookings</span>
+            </div>
+          </div>
         </div>
 
-        <div className="site-header__intro">
-          <p className="eyebrow">Hyderabad · Water-resource prioritization</p>
-          <h1>Where should a water-board engineer investigate first?</h1>
-          
-<p className="lede">
-  Choose how many areas your team can investigate. AquaPrior ranks them
-  by tanker demand and nearby groundwater trend, and shows how strong
-  the evidence is.
-</p>
+       
+<div className="hero__visual" aria-hidden="true">
+  <div className="hero__orb hero__orb--outer" />
+  <div className="hero__orb hero__orb--middle" />
+  <div className="hero__orb hero__orb--inner" />
 
-        </div>
+  <span className="hero__signature-dot" />
+
+  <div className="hero__visual-label">
+    DATA → EVIDENCE → ACTION
+  </div>
+</div>
+
       </div>
     </header>
   );

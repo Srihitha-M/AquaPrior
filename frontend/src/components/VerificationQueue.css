@@ -1,0 +1,450 @@
+
+.verification-page {
+  min-height: 80vh;
+  padding: 58px 0 85px;
+  background: #edf5fc;
+  color: #163b5d;
+}
+
+.verification-page__header {
+  max-width: 760px;
+  margin-bottom: 32px;
+}
+
+.verification-page__eyebrow {
+  color: #3979af;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.verification-page__header h1 {
+  margin: 12px 0;
+  color: #10365d;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(30px, 3.3vw, 44px);
+  letter-spacing: -0.045em;
+}
+
+.verification-page__header p {
+  color: #637e96;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.verification-page__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.verification-page__stats > div {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px;
+  border: 1px solid #d5e7f5;
+  border-radius: 17px;
+  background: #fff;
+  box-shadow: 0 8px 26px rgba(26, 76, 121, 0.04);
+}
+
+.verification-page__stats strong {
+  color: #174e7f;
+  font-size: 32px;
+  letter-spacing: -0.04em;
+}
+
+.verification-page__stats span {
+  color: #69849b;
+  font-size: 12px;
+}
+
+.verification-page__content {
+  overflow: hidden;
+  border: 1px solid #d5e7f5;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 10px 35px rgba(26, 76, 121, 0.06);
+}
+
+.verification-page__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 25px;
+  border-bottom: 1px solid #e5eef6;
+}
+
+.verification-page__toolbar h2 {
+  margin: 0 0 7px;
+  color: #173e65;
+  font-size: 18px;
+}
+
+.verification-page__toolbar p {
+  margin: 0;
+  color: #71889d;
+  font-size: 12px;
+}
+
+.verification-page__toolbar input {
+  width: min(100%, 260px);
+  padding: 12px 15px;
+  border: 1px solid #d4e3f0;
+  border-radius: 11px;
+  background: #f7fbff;
+  color: #173e65;
+  font: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+.verification-page__toolbar input:focus {
+  border-color: #3988c6;
+  box-shadow: 0 0 0 3px rgba(57, 136, 198, 0.12);
+}
+
+.verification-page__table-wrap {
+  overflow-x: auto;
+}
+
+.verification-page__table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.verification-page__table th {
+  padding: 17px 22px;
+  background: #f4f9fd;
+  color: #647f96;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.verification-page__table td {
+  padding: 17px 22px;
+  border-top: 1px solid #edf2f7;
+  color: #3c5b76;
+  font-size: 12px;
+}
+
+.verification-page__table td strong {
+  color: #183f64;
+}
+
+.verification-page__table tbody tr:hover {
+  background: #f6faff;
+}
+
+.verification-page__status {
+  display: inline-block;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: #fff3df;
+  color: #946016;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.verification-page__empty {
+  padding: 50px 24px;
+  color: #71889d;
+  font-size: 14px;
+  text-align: center;
+}
+
+.verification-page__footnote {
+  margin-top: 20px;
+  color: #71889d;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+  .verification-page {
+    padding: 38px 0 60px;
+  }
+
+  .verification-page__stats {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .verification-page__stats > div {
+    padding: 18px;
+  }
+
+  .verification-page__toolbar {
+    padding: 20px;
+  }
+
+  .verification-page__toolbar input {
+    width: 100%;
+  }
+
+  .verification-page__table {
+    min-width: 650px;
+  }
+}
+.verification-page__stats > div:nth-child(1) {
+  border-top: 4px solid #e5a23e;
+  background: #fffbf4;
+}
+
+.verification-page__stats > div:nth-child(2) {
+  border-top: 4px solid #39a27d;
+  background: #f5fcf8;
+}
+
+.verification-page__stats > div:nth-child(3) {
+  border-top: 4px solid #428bc4;
+  background: #f5faff;
+}
+.verification-page__urgency {
+  display: inline-block;
+  padding: 7px 11px;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.verification-page__urgency--first {
+  background: #fff0ed;
+  color: #bc4339;
+}
+
+.verification-page__urgency--next {
+  background: #fff5e3;
+  color: #99600e;
+}
+
+.verification-page__urgency--routine {
+  background: #eaf3fc;
+  color: #326d9e;
+}
+
+
+.verification-page__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.verification-page__filter {
+  padding: 11px 16px;
+  border: 1px solid #d4e4f1;
+  border-radius: 11px;
+  background: white;
+  color: #456984;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.verification-page__filter span {
+  margin-left: 6px;
+  opacity: 0.7;
+}
+
+.verification-page__filter:hover {
+  border-color: #438bc2;
+  background: #f1f8ff;
+}
+
+.verification-page__filter.is-active {
+  background: #163e65;
+  border-color: #163e65;
+  color: white;
+}
+
+.verification-page__filter:focus-visible {
+  outline: 3px solid #72b8ef;
+  outline-offset: 2px;
+}
+
+/* Color-coded verification filters */
+
+.verification-page__filter:nth-child(1) {
+  background: #edf5fc;
+  color: #285a85;
+  border-color: #c9dfef;
+}
+
+.verification-page__filter:nth-child(2) {
+  background: #fff0ed;
+  color: #b94a3f;
+  border-color: #f3c8c1;
+}
+
+.verification-page__filter:nth-child(3) {
+  background: #fff6e6;
+  color: #95600f;
+  border-color: #f0d9a5;
+}
+
+.verification-page__filter:nth-child(4) {
+  background: #eaf8f5;
+  color: #247e70;
+  border-color: #bde5da;
+}
+
+/* Stronger selected states */
+
+.verification-page__filter:nth-child(1).is-active {
+  background: #163e65;
+  border-color: #163e65;
+  color: white;
+}
+
+.verification-page__filter:nth-child(2).is-active {
+  background: #c65349;
+  border-color: #c65349;
+  color: white;
+}
+
+.verification-page__filter:nth-child(3).is-active {
+  background: #b47a1e;
+  border-color: #b47a1e;
+  color: white;
+}
+
+.verification-page__filter:nth-child(4).is-active {
+  background: #278b79;
+  border-color: #278b79;
+  color: white;
+}
+
+/* AQUAPRIOR — FINAL VERIFICATION COLORS */
+
+/* Three uniform statistic cards */
+.verification-page__stats > div {
+  background: #f1f7fd;
+  border: 1px solid #d4e5f2;
+  border-top: 3px solid #8cb9da;
+}
+
+.verification-page__stats strong {
+  color: #163e65;
+}
+
+/* All sections — navy */
+.verification-page__filter:nth-child(1) {
+  background: #edf4fb;
+  border-color: #c8dbea;
+  color: #163e65;
+}
+
+/* Verify first — deep red */
+.verification-page__filter:nth-child(2) {
+  background: #fce8eb;
+  border-color: #e9aeb7;
+  color: #a51d2d;
+}
+
+/* Verify next — dark amber */
+.verification-page__filter:nth-child(3) {
+  background: #fff0d8;
+  border-color: #e7c58b;
+  color: #87530a;
+}
+
+/* Routine — forest green */
+.verification-page__filter:nth-child(4) {
+  background: #e3f3e9;
+  border-color: #9fd3b5;
+  color: #16683f;
+}
+
+/* Selected buttons — darker, solid colors */
+.verification-page__filter:nth-child(1).is-active {
+  background: #163e65;
+  border-color: #163e65;
+  color: #ffffff;
+}
+
+.verification-page__filter:nth-child(2).is-active {
+  background: #a51d2d;
+  border-color: #a51d2d;
+  color: #ffffff;
+}
+
+.verification-page__filter:nth-child(3).is-active {
+  background: #87530a;
+  border-color: #87530a;
+  color: #ffffff;
+}
+
+.verification-page__filter:nth-child(4).is-active {
+  background: #16683f;
+  border-color: #16683f;
+  color: #ffffff;
+}
+
+/* Matching table labels */
+.verification-page__urgency--first {
+  background: #fce8eb;
+  color: #a51d2d;
+}
+
+.verification-page__urgency--next {
+  background: #fff0d8;
+  color: #87530a;
+}
+
+.verification-page__urgency--routine {
+  background: #e3f3e9;
+  color: #16683f;
+}
+
+/* Verify next — fresh orange */
+
+.verification-page__filter:nth-child(3) {
+  background: #fff0e1;
+  border-color: #f4c99e;
+  color: #ad5818;
+}
+
+.verification-page__filter:nth-child(3).is-active {
+  background: #ef953b;
+  border-color: #ef953b;
+  color: #ffffff;
+}
+
+.verification-page__urgency--next {
+  background: #fff0e1;
+  color: #ad5818;
+}
+
+/*entrance*/
+
+@keyframes aquaQuickReveal {
+  from {
+    opacity: 0.75;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.verification-page__header {
+  animation: aquaQuickReveal 0.28s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .verification-page__header {
+    animation: none;
+  }
+}

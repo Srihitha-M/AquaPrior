@@ -2,7 +2,7 @@
 .plist {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -11,7 +11,7 @@
 
 /* Keep previous results visible while new data loads */
 .plist.is-updating {
-  opacity: 0.6;
+  opacity: 0.9;
 }
 
 /* Loading placeholders */

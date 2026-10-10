@@ -1,0 +1,204 @@
+
+/* EXPLORE MAP — AQUAPRIOR */
+
+.map-page {
+  min-height: 85vh;
+  padding: 58px 0 85px;
+  background: #edf5fc;
+  color: #163b5d;
+}
+
+.map-page__heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.map-page__eyebrow {
+  color: #3979af;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.map-page__heading h1 {
+  margin: 12px 0;
+  color: #10365d;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(28px, 3.3vw, 44px);
+  letter-spacing: -0.045em;
+  line-height: 1.2;
+}
+
+.map-page__heading p {
+  max-width: 650px;
+  margin: 0;
+  color: #637e96;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.map-page__count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 140px;
+  padding: 16px 22px;
+  border: 1px solid #d5e7f5;
+  border-radius: 15px;
+  background: #fff;
+}
+
+.map-page__count strong {
+  color: #18588f;
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.map-page__count span {
+  margin-top: 5px;
+  color: #69849b;
+  font-size: 11px;
+}
+
+.map-page__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(290px, 0.85fr);
+  gap: 20px;
+  align-items: stretch;
+}
+
+.map-page__map {
+  overflow: hidden;
+  min-width: 0;
+  border: 1px solid #d3e5f3;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 10px 35px rgba(26, 76, 121, 0.07);
+}
+
+.map-page__leaflet {
+  width: 100%;
+  height: 540px;
+  z-index: 0;
+}
+
+.map-page__map-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  padding: 16px 20px;
+  color: #627e96;
+  font-size: 11px;
+}
+
+.map-page__details {
+  min-width: 0;
+  padding: 27px;
+  border: 1px solid #d3e5f3;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 10px 35px rgba(26, 76, 121, 0.07);
+}
+
+.map-page__details h2 {
+  margin: 18px 0 12px;
+  color: #10365d;
+  font-family: "Poppins", sans-serif;
+  font-size: 27px;
+  overflow-wrap: anywhere;
+}
+
+.map-page__rank {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 7px 12px;
+  border-radius: 9px;
+  background: #e7f2fc;
+  color: #1c6198;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.map-page__metric {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e8f0f7;
+}
+
+.map-page__metric span {
+  color: #698198;
+  font-size: 12px;
+}
+
+.map-page__metric strong {
+  color: #174b79;
+  font-size: 15px;
+  text-align: right;
+}
+
+.map-page__action {
+  margin-top: 26px;
+  padding: 18px;
+  border-radius: 13px;
+  background: #edf6ff;
+}
+
+.map-page__action > span {
+  color: #3979af;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.map-page__action p {
+  margin: 9px 0 0;
+  color: #204c73;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.map-page__disclaimer {
+  margin-top: 20px;
+  color: #7b8fa2;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .map-page__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .map-page__leaflet {
+    height: 450px;
+  }
+}
+
+@media (max-width: 560px) {
+  .map-page {
+    padding: 38px 0 60px;
+  }
+
+  .map-page__heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .map-page__count {
+    align-items: flex-start;
+  }
+
+  .map-page__leaflet {
+    height: 370px;
+  }
+
+  .map-page__details {
+    padding: 20px;
+  }
+}

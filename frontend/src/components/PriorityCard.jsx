@@ -1,107 +1,118 @@
 
-import { TriangleAlert, CircleCheck } from "lucide-react";
-import { describeEvidence, scoreParts } from "../lib/evidence";
-import { formatInt, formatMeters, titleCase } from "../lib/format";
+import { ChevronDown, ChevronUp } from "lucide-react";
+import { titleCase, formatInt } from "../lib/format";
 import "./PriorityCard.css";
 
-export default function PriorityCard({ area, index, selected, onSelect }) {
-  const evidence = describeEvidence(area);
-  const parts = scoreParts(area);
-  const caution = evidence.level === "caution";
-
-  const change = area.groundwater_change_m;
-  const trend =
-    change == null ? "unavailable" :
-    change < 0 ? "declining" :
-    change > 0 ? "rising" : "unchanged";
+export default function PriorityCard({
+  area,
+  selected,
+  onSelect,
+}) {
+  const expanded = Boolean(selected);
+  const score = Number(area.priority_score);
 
   return (
-    <li className="pc-item" style={{ "--i": Math.min(index, 8) }}>
-      <button
-        type="button"
-        className={"pcard" + (selected ? " is-selected" : "")}
-        aria-pressed={selected}
-        onClick={() => onSelect(area.section)}
-      >
-        <span className="pcard__rank mono" aria-label={`Rank ${area.rank}`}>
-          {area.rank}
-        </span>
+    <li className={"pc-item" + (expanded ? " is-open" : "")}>
+      <div className="pcard">
+        <div className="pcard__row">
+          <span className="pcard__rank mono">
+            {String(area.rank).padStart(2, "0")}
+          </span>
 
-        <span className="pcard__main">
-          <span className="pcard__top">
-            <span className="pcard__name">
+          <div className="pcard__main">
+            <strong className="pcard__name">
               {titleCase(area.section)}
-            </span>
+            </strong>
 
-            <span className="pcard__score mono">
-              {Number(area.priority_score).toFixed(1)}
-              <span className="pcard__score-label">
-                priority score
-              </span>
+            <span className="pcard__bookings">
+              {formatInt(area.bookings)} tanker bookings
             </span>
-          </span>
+            
+<div className="pcard__signals" aria-label="Priority score components">
+  {[
+    {
+      label: "Demand",
+      value: area.tanker_score,
+      className: "demand",
+    },
+    {
+      label: "Groundwater",
+      value: area.groundwater_score,
+      className: "groundwater",
+    },
+  ].map((signal) => {
+    const value = Number(signal.value);
+    const valid =
+      signal.value !== null &&
+      signal.value !== undefined &&
+      Number.isFinite(value);
 
-          <span
-            className="pcard__bar"
-            role="img"
-            aria-label={`Score made of ${parts.tanker.toFixed(1)} from tanker demand and ${parts.groundwater.toFixed(1)} from groundwater trend`}
+    const width = valid
+      ? Math.max(0, Math.min(100, value))
+      : 0;
+
+    return (
+      <div className="pcard__signal" key={signal.label}>
+        <div className="pcard__signal-label">
+         <span>
+  {signal.className === "demand"
+    ? "Tanker demand score"
+    : "Groundwater score"}
+</span>
+
+<strong>
+  {valid ? `${value.toFixed(0)}/100` : "—"}
+</strong>
+        </div>
+
+        <div
+          className="pcard__signal-track"
+          role="img"
+          aria-label={`${signal.label} score: ${
+            valid ? value.toFixed(1) : "not available"
+          }`}
+        >
+          <div
+            className={`pcard__signal-fill is-${signal.className}`}
+            style={{ width: `${width}%` }}
+          />
+        </div>
+      </div>
+    );
+  })}
+</div>
+
+          </div>
+
+          <div className="pcard__score">
+            <strong className="mono">
+              {Number.isFinite(score)
+                ? score.toFixed(1)
+                : "—"}
+            </strong>
+            <span>Score</span>
+          </div>
+
+          <button
+            type="button"
+            className="pcard__why"
+            aria-expanded={expanded}
+            aria-label={`${
+              expanded ? "Hide" : "Show"
+            } evidence for ${titleCase(area.section)}`}
+            onClick={() => onSelect(area.section)}
           >
-            <span
-              className="pcard__bar-t"
-              style={{ width: parts.tanker + "%" }}
-            />
-            <span
-              className="pcard__bar-g"
-              style={{ width: parts.groundwater + "%" }}
-            />
-          </span>
-
-          <span className="pcard__legend">
-            <span>
-              <i className="dot dot--t" />
-              Tanker demand {parts.tanker.toFixed(1)}
-            </span>
-            <span>
-              <i className="dot dot--g" />
-              Groundwater {parts.groundwater.toFixed(1)}
-            </span>
-          </span>
-
-          <span className="pcard__facts">
-            <span>
-              <strong className="mono">
-                {formatInt(area.bookings)}
-              </strong>{" "}
-              tanker bookings
-            </span>
-
-            <span>
-              Groundwater (5 km median){" "}
-              <strong className="mono">
-                {formatMeters(change)}
-              </strong>{" "}
-              {trend}
-            </span>
-          </span>
-
-          <span className={"pcard__chip pcard__chip--" + evidence.level}>
-            {caution ? (
-              <TriangleAlert size={14} aria-hidden="true" />
+            {expanded ? "Hide" : "Why?"}
+            {expanded ? (
+              <ChevronUp size={16} aria-hidden="true" />
             ) : (
-              <CircleCheck size={14} aria-hidden="true" />
+              <ChevronDown size={16} aria-hidden="true" />
             )}
+          </button>
+        </div>
 
-            <span>
-              <strong>{evidence.label}</strong>
-              {caution && (
-                <span className="pcard__flag">
-                  {" "}· {evidence.flags[0]}
-                </span>
-              )}
-            </span>
-          </span>
-        </span>
-      </button>
+       
+      </div>
     </li>
   );
 }

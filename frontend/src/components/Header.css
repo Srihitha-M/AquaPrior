@@ -1,117 +1,396 @@
-.site-header {
+
+/* =========================================
+   AQUAPRIOR — PREMIUM HOME HERO
+========================================= */
+
+.hero {
   position: relative;
   overflow: hidden;
-  background: var(--navy-900);
-  border-bottom: 3px solid var(--teal-500);
-  color: #fff;
+  isolation: isolate;
+  color: #ffffff;
+
+  background:
+    radial-gradient(
+      ellipse at 82% 48%,
+      rgba(86, 158, 230, 0.25),
+      transparent 42%
+    ),
+    linear-gradient(
+      120deg,
+      #091d36 0%,
+      #10355d 53%,
+      #1b5387 100%
+    );
 }
 
-
-.site-header__bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-width: 0;
-}
-
-.brand__mark {
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: var(--teal-600);
-  color: #fff;
-  flex: none;
-}
-
-.brand__name {
-  font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-}
-
-.brand__tagline {
-  padding-left: 12px;
-  border-left: 1px solid rgba(255, 255, 255, 0.25);
-  color: #b9cde0;
-  font-size: 14px;
-}
-
-.proto-tag {
-  flex: none;
-  padding: 4px 12px;
-  border: 1px solid var(--sand-500);
-  border-radius: 999px;
-  color: #f0cf8f;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-}
-
-.site-header__intro {
-  padding: 22px 0 26px;
-  max-width: 760px;
-}
-
-.eyebrow {
-  margin: 0 0 12px;
-  color: var(--cyan-400);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.site-header h1 {
-  color: #fff;
-  font-size: clamp(24px, 3vw, 32px);
-  font-weight: 500;
-}
-
-.lede {
-  margin: 10px 0 0;
-  color: #b9cde0;
-  font-size: 16px;
-  max-width: 62ch;
-}
-
-@media (max-width: 720px) {
-  .brand__tagline { display: none; }
-  .site-header__intro { padding: 28px 0 32px; }
-}
-
-
-/* Keep header content above the decorative artwork */
-.site-header__content {
-  position: relative;
-  z-index: 1;
-}
-
-/* Subtle water-inspired contour lines */
-.contours {
+/* Soft ocean-current lines */
+.hero::before {
+  content: "";
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  color: var(--cyan-400);
+  z-index: -1;
   pointer-events: none;
-  -webkit-mask-image: linear-gradient(to right, transparent 25%, #000 75%);
-  mask-image: linear-gradient(to right, transparent 25%, #000 75%);
+
+  background:
+    repeating-radial-gradient(
+      ellipse 680px 310px at 94% 108%,
+      transparent 0 42px,
+     rgba(205, 235, 255, 0.24) 43px,
+      transparent 44px 70px
+    );
+
+  opacity: 0.7;
 }
 
-@media (max-width: 720px) {
-  .contours {
-    opacity: 0.6;
+.hero__content {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  align-items: center;
+  gap: 35px;
+  min-height: 580px;
+  padding-top: 80px;
+  padding-bottom: 90px;
+}
+
+.hero__body {
+  position: relative;
+  z-index: 2;
+  animation: hero-enter 700ms ease-out both;
+}
+
+/* Typography */
+
+.hero .eyebrow {
+  margin: 0 0 22px;
+  color: #a9d6f5;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.hero h1 {
+  margin: 0;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: clamp(38px, 4.3vw, 66px);
+  font-weight: 700;
+  line-height: 1.16;
+  letter-spacing: -0.045em;
+}
+
+.hero .hl {
+  color: #9bd5ff;
+}
+
+.hero .lede {
+  max-width: 580px;
+  margin: 25px 0 0;
+  color: #d0e1f0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* Buttons */
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 24px;
+  margin-top: 34px;
+}
+
+.hero__button {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  padding: 15px 23px;
+  border-radius: 12px;
+
+  color: #0a2a4a;
+  background: #c6e7ff;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.15);
+  transition:
+    transform 220ms ease,
+    background 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.hero__button:hover {
+  transform: translateY(-3px);
+  background: #ffffff;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.2);
+}
+
+.hero__secondary {
+  color: #d5eafa;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 220ms ease;
+}
+
+.hero__secondary:hover {
+  color: #ffffff;
+}
+
+/* Impact statistics */
+
+.hero .impact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-top: 52px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(220, 239, 255, 0.18);
+}
+
+.hero .impact__item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hero .impact__item strong {
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: clamp(21px, 2.2vw, 29px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.hero .impact__item span {
+  color: #b5ccdf;
+  font-size: 12px;
+}
+
+/* =========================================
+   SIGNATURE WATER INTELLIGENCE ORB
+========================================= */
+
+.hero__visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 430px;
+  isolation: isolate;
+}
+
+/* Ambient light behind the orb */
+.hero__visual::before {
+  content: "";
+  position: absolute;
+  width: 390px;
+  height: 390px;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(113, 192, 255, 0.16),
+    rgba(76, 150, 223, 0.05) 48%,
+    transparent 72%
+  );
+
+  filter: blur(14px);
+  pointer-events: none;
+}
+
+.hero__orb {
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.hero__orb--outer {
+  width: min(100%, 430px);
+  border: 1px solid rgba(183, 223, 255, 0.23);
+
+  background:
+    radial-gradient(
+      circle at 40% 35%,
+      rgba(182, 226, 255, 0.13),
+      transparent 60%
+    );
+
+  box-shadow:
+    0 0 90px rgba(89, 164, 233, 0.1),
+    inset 0 0 70px rgba(109, 189, 255, 0.06);
+}
+
+.hero__orb--middle {
+  width: min(77%, 330px);
+  border: 1px solid rgba(185, 225, 255, 0.34);
+
+  background: linear-gradient(
+    145deg,
+    rgba(156, 213, 255, 0.15),
+    rgba(30, 92, 151, 0.06)
+  );
+
+  box-shadow: 0 0 55px rgba(128, 195, 255, 0.1);
+}
+
+.hero__orb--inner {
+  width: min(52%, 220px);
+  border: 1px solid rgba(212, 239, 255, 0.52);
+
+  background:
+    radial-gradient(
+      circle at 35% 28%,
+      rgba(225, 246, 255, 0.7),
+      rgba(91, 165, 224, 0.35) 40%,
+      rgba(20, 67, 119, 0.18) 75%
+    );
+
+  box-shadow:
+    inset -20px -20px 45px rgba(12, 53, 99, 0.3),
+    0 0 65px rgba(139, 205, 255, 0.2);
+
+  animation: orb-float 8s ease-in-out infinite;
+}
+
+/* Signature dot inspired by AquaPrior O· logo */
+
+.hero__signature-dot {
+  position: absolute;
+  z-index: 3;
+
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+
+  background: #c7edff;
+  box-shadow:
+    0 0 12px rgba(198, 235, 255, 0.95),
+    0 0 30px rgba(126, 199, 255, 0.5);
+
+  transform: translateY(130px);
+}
+
+.hero__visual-label {
+  position: absolute;
+  bottom: 5px;
+  color: #a8c9e3;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+/* Motion */
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes orb-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .hero__content {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+
+  .hero__visual {
+    min-height: 280px;
+  }
+
+  .hero__orb--outer {
+    width: 280px;
+  }
+
+  .hero__orb--middle {
+    width: 215px;
+  }
+
+  .hero__orb--inner {
+    width: 145px;
+  }
+
+  .hero__signature-dot {
+    transform: translateY(89px);
+  }
+
+  .hero__visual::before {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero__content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .hero h1 {
+    font-size: 37px;
+  }
+
+  .hero .impact {
+    gap: 20px;
+  }
+
+  .hero__visual {
+    min-height: 220px;
+  }
+
+  .hero__orb--outer {
+    width: 220px;
+  }
+
+  .hero__orb--middle {
+    width: 165px;
+  }
+
+  .hero__orb--inner {
+    width: 110px;
+  }
+
+  .hero__signature-dot {
+    width: 8px;
+    height: 8px;
+    transform: translateY(68px);
+  }
+
+  .hero__visual::before {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__body,
+  .hero__orb--inner {
+    animation: none;
+  }
+
+  .hero__button,
+  .hero__secondary {
+    transition: none;
   }
 }

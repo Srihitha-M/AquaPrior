@@ -1,215 +1,254 @@
 
+/* AQUAPRIOR — CLEAN RANKING ROWS */
+
 .pc-item {
   list-style: none;
-  animation: card-in 440ms var(--ease) both;
-  animation-delay: calc(var(--i) * 45ms);
-}
-
-@keyframes card-in {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  min-width: 0;
 }
 
 .pcard {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  width: 100%;
-  padding: 16px;
-  text-align: left;
-  color: inherit;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  cursor: pointer;
+  overflow: hidden;
+  border: 1px solid #e0e9f1;
+  border-radius: 13px;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(28, 70, 108, 0.025);
   transition:
-    border-color var(--dur) var(--ease),
-    background var(--dur) var(--ease),
-    box-shadow var(--dur) var(--ease);
+    border-color 160ms ease,
+    box-shadow 160ms ease;
 }
 
 .pcard:hover {
-  border-color: var(--teal-500);
-  background: #fbfdfc;
+  border-color: #b7d7eb;
+  box-shadow: 0 5px 18px rgba(28, 70, 108, 0.055);
 }
 
-.pcard.is-selected {
-  border-color: var(--teal-600);
-  background: var(--teal-50);
-  box-shadow: inset 4px 0 0 var(--teal-600);
+.pc-item.is-open .pcard {
+  border-color: #91c5e5;
 }
 
-.pcard:focus-visible {
-  outline: 3px solid var(--teal-500);
-  outline-offset: 3px;
+.pcard__row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 83px;
+  padding: 15px 19px;
 }
 
 .pcard__rank {
-  flex: none;
   display: grid;
   place-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--navy-900);
-  color: #fff;
-  font-weight: 600;
-  font-size: 15px;
+  flex: 0 0 39px;
+  width: 39px;
+  height: 39px;
+  border-radius: 10px;
+  background: #edf5fb;
+  color: #296c9c;
+  font-size: 14px;
+  font-weight: 800;
 }
 
 .pcard__main {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
-  min-width: 0;
   flex: 1;
-}
-
-.pcard__top {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 12px;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
 }
 
 .pcard__name {
-  font-family: var(--font-display);
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--navy-900);
-  line-height: 1.2;
+  color: #193d5d;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.pcard__bookings {
+  color: #71869a;
+  font-size: 12px;
 }
 
 .pcard__score {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  font-family: var(--font-display);
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 1;
-  color: var(--teal-700);
+  gap: 3px;
+  flex: 0 0 auto;
 }
 
-.pcard__score-label {
-  margin-top: 4px;
-  font-family: var(--font-ui);
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--ink-soft);
+.pcard__score strong {
+  color: #205b85;
+  font-size: 18px;
+  font-weight: 750;
 }
 
-.pcard__bar {
-  display: flex;
-  height: 8px;
-  border-radius: 999px;
-  background: var(--line);
-  overflow: hidden;
+.pcard__score span {
+  color: #8193a2;
+  font-size: 10px;
 }
 
-.pcard__bar-t,
-.pcard__bar-g {
-  height: 100%;
-  transform-origin: left;
-  animation: bar-in 660ms var(--ease) both;
-}
-
-.pcard__bar-t {
-  background: var(--navy-700);
-}
-
-.pcard__bar-g {
-  background: var(--cyan-400);
-}
-
-@keyframes bar-in {
-  from { transform: scaleX(0); }
-  to { transform: scaleX(1); }
-}
-
-.pcard__legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 16px;
-  font-size: 12px;
-  color: var(--ink-soft);
-}
-
-.dot {
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  margin-right: 6px;
-  border-radius: 50%;
-}
-
-.dot--t { background: var(--navy-700); }
-.dot--g { background: var(--cyan-400); }
-
-.pcard__facts {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  font-size: 13px;
-  color: var(--ink-soft);
-}
-
-.pcard__facts strong {
-  color: var(--ink);
-}
-
-.pcard__chip {
+.pcard__why {
   display: inline-flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   gap: 6px;
-  padding: 6px 10px;
-  border-radius: var(--radius-sm);
-  font-size: 12.5px;
-  line-height: 1.4;
+  flex: 0 0 auto;
+  min-width: 82px;
+  min-height: 39px;
+  padding: 8px 11px;
+  border: 1px solid #c8dfef;
+  border-radius: 9px;
+  background: #f1f8fd;
+  color: #236b9b;
+  font-size: 12px;
+  font-weight: 750;
+  cursor: pointer;
+  transition:
+    background 150ms ease,
+    border-color 150ms ease;
 }
 
-.pcard__chip svg {
-  flex: none;
-  margin-top: 2px;
+.pcard__why:hover {
+  background: #e1f1fb;
+  border-color: #90bfdf;
 }
 
-.pcard__chip--caution {
-  background: var(--sand-50);
-  border: 1px solid var(--sand-500);
-  color: var(--sand-700);
+.pcard__why:focus-visible {
+  outline: 3px solid #78bce7;
+  outline-offset: 3px;
 }
 
-.pcard__chip--steady {
-  background: var(--teal-50);
-  border: 1px solid var(--cyan-100);
-  color: var(--teal-700);
+.pcard__details {
+  padding: 0 18px 18px;
+  border-top: 1px solid #e5eef5;
 }
 
-.pcard__flag {
-  font-weight: 400;
+.pcard__details .evidence {
+  margin-top: 17px;
+  border: 0;
+  border-radius: 12px;
+  box-shadow: none;
+  background: #f8fbfe;
+  padding: 20px;
 }
 
-@media (max-width: 480px) {
-  .pcard {
-    padding: 14px 12px;
+@media (max-width: 600px) {
+  .pcard__row {
     gap: 10px;
+    padding: 13px 12px;
+  }
+
+  .pcard__rank {
+    flex-basis: 32px;
+    width: 32px;
+    height: 34px;
+    font-size: 12px;
   }
 
   .pcard__name {
-    font-size: 18px;
+    font-size: 13px;
+  }
+
+  .pcard__bookings {
+    font-size: 11px;
+  }
+
+  .pcard__score strong {
+    font-size: 15px;
+  }
+
+  .pcard__why {
+    min-width: 65px;
+    padding: 7px;
+    font-size: 11px;
+  }
+
+  .pcard__details {
+    padding: 0 10px 10px;
+  }
+
+  .pcard__details .evidence {
+    padding: 15px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .pc-item,
-  .pcard__bar-t,
-  .pcard__bar-g {
-    animation: none;
+  .pcard,
+  .pcard__why {
+    transition: none;
+  }
+}
+
+/* Mini priority evidence indicators */
+
+.pcard__signals {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 390px;
+  margin-top: 10px;
+}
+
+.pcard__signal {
+  min-width: 0;
+}
+
+.pcard__signal-label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+  color: #617c90;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.pcard__signal-label span {
+  min-width: 0;
+}
+
+.pcard__signal-label strong {
+  flex-shrink: 0;
+  color: #245c82;
+  font-size: 10px;
+  font-weight: 750;
+}
+
+.pcard__signal-track {
+  overflow: hidden;
+  height: 5px;
+  border-radius: 99px;
+  background: #e6eef4;
+}
+
+.pcard__signal-fill {
+  height: 100%;
+  border-radius: inherit;
+  transition: width 300ms ease;
+}
+
+.pcard__signal-fill.is-demand {
+  background: #3989b7;
+}
+
+.pcard__signal-fill.is-groundwater {
+  background: #36a99b;
+}
+
+@media (max-width: 600px) {
+  .pcard__signals {
+    gap: 9px;
+    margin-top: 8px;
+  }
+
+  .pcard__signal-label {
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pcard__signal-fill {
+    transition: none;
   }
 }

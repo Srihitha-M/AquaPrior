@@ -16,8 +16,15 @@ export function usePriorities(capacity) {
 
     const timer = setTimeout(async () => {
       try {
-        const data = await fetchPriorities(capacity, controller.signal);
-        setState({ status: "success", data, error: null });
+       const data = await fetchPriorities(capacity, controller.signal);
+
+console.log("API FINISHED:", {
+  requested: capacity,
+  returned: data.selected,
+  areas: data.areas?.length,
+});
+
+setState({ status: "success", data, error: null });
       } catch (err) {
         if (err.name === "AbortError") return;
         setState((prev) => ({ ...prev, status: "error", error: err }));
