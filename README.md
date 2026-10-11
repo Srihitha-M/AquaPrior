@@ -26,6 +26,7 @@ A city may have hundreds of sections, while an investigation team can examine on
 
 AquaPrior combines both without hiding the uncertainty.
 
+#
 ## What it does
 
 | Feature | What you get |
@@ -35,8 +36,11 @@ AquaPrior combines both without hiding the uncertainty.
 | **Explore Map** | View the 23 assessed sections on an interactive map and click markers for their evidence. |
 | **Verification Queue** | See demand-eligible sections that lack location-linked evidence, kept visible instead of ranked on weak data. |
 | **Methodology** | Read the scoring method, assumptions, and limitations in full. |
-![AquaPrior Explore Map](screenshots/map_explorer.png)
+
 Works on desktop and mobile; desktop gives the best experience.
+
+![AquaPrior Explore Map](screenshots/map_explorer.png)
+
 
 ## Data at a glance
 
@@ -52,6 +56,7 @@ Works on desktop and mobile; desktop gives the best experience.
 **Periods covered:** tanker bookings from June to August 2026; groundwater evidence from September 2 to October 2, 2026, with nearby monitoring considered at 3 km and 5 km and reliability indicators attached.
 
 These are historical, limited inputs, not real-time citywide measurements.
+![AquaPrior data set at glance](screenshots/dataset_at_glance.png)
 
 ## How prioritization works
 
@@ -71,7 +76,7 @@ Pick a capacity, and the planner returns that many top-ranked sections. Select a
 Of 218 demand-eligible sections, only 23 have the evidence needed for a ranking. The other 195 stay in the Verification Queue.
 
 **Missing evidence is not missing need.** Rather than forcing every section into a confident-looking leaderboard, AquaPrior separates what can be compared today from what needs a closer look.
-
+![AquaPrior verification](screenshots/verification_queue.png)
 ## Architecture
 
 | Layer | Technology | Role |
@@ -120,7 +125,7 @@ npm run build
 - Map markers are **approximate locations**, not surveyed administrative boundaries.
 - Rankings compare only the 23 assessed sections under this heuristic; they don't measure absolute scarcity.
 - Field investigation and local verification are still required before any operational decision.
-![AquaPrior Methodology](screenshots/methodology.png)
+![AquaPrior Methodology](screenshots/methodology_info.png)
 ---
 
 **Better water decisions begin with evidence, and with being clear about where that evidence is still missing.**
