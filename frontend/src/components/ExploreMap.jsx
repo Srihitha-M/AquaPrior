@@ -47,6 +47,27 @@ export default function ExploreMap({ data, status }) {
       }));
   }, [data]);
 
+console.table(
+  (data?.areas ?? [])
+    .filter(
+      (area) =>
+        !sectionCoordinates[normalize(area.section)]
+    )
+    .map((area) => ({
+      section: area.section,
+      rank: area.rank,
+    }))
+);
+console.log("MAP CHECK", {
+  apiCount: data?.areas?.length,
+  mappedCount: areas.length,
+  missingCoordinates: (data?.areas ?? [])
+    .filter(
+      (area) =>
+        !sectionCoordinates[normalize(area.section)]
+    )
+    .map((area) => area.section),
+});
   const activeArea =
     areas.find((area) => area.section === selectedArea) ??
     areas[0] ??

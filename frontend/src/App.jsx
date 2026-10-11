@@ -10,17 +10,21 @@ import Methodology from "./components/Methodology";
 import ScopeBanner from "./components/ScopeBanner";
 import CapacitySelector from "./components/CapacitySelector";
 import PriorityList from "./components/PriorityList";
-import DemandInsights from "./components/DemandInsights";
-
 import DatasetSummary from "./components/DatasetSummary";
 import VerificationQueue from "./components/VerificationQueue";
 import verificationData from "./data/verificationQueue.json";
 import EvidenceExplorer from "./components/EvidenceExplorer";
+
 import "./App.css";
 
-
-
-function Planner({ capacity, setCapacity, data, status, error, retry }) {
+function Planner({
+  capacity,
+  setCapacity,
+  data,
+  status,
+  error,
+  retry,
+}) {
   const [selectedSection, setSelectedSection] = useState(null);
 
   const selectedArea =
@@ -61,27 +65,28 @@ function Planner({ capacity, setCapacity, data, status, error, retry }) {
               className="planner-results"
               aria-labelledby="rankings-title"
             >
-             
-<div className="planner-results__head">
-  <h2 id="rankings-title">
-    Top areas to investigate
-  </h2>
+              <div className="planner-results__head">
+                <h2 id="rankings-title">
+                  Top areas to investigate
+                </h2>
 
-  <p>
-    {status === "loading"
-      ? "Updating rankings…"
-      : status === "error"
-      ? "Unable to refresh rankings."
-      : `${data?.areas?.length ?? capacity} selected · Ranked by tanker demand and groundwater evidence`}
-  </p>
+                <p>
+                  {status === "loading"
+                    ? "Updating rankings…"
+                    : status === "error"
+                    ? "Unable to refresh rankings."
+                    : `${
+                        data?.areas?.length ?? capacity
+                      } selected · Ranked by tanker demand and groundwater evidence`}
+                </p>
 
-  <p className="planner-results__score-note">
-    The mini bars show relative component scores (0–100).
-    The ranking combines tanker demand (60%) and
-    groundwater evidence (40%). Click Why? for details.
-  </p>
-</div>
-
+                <p className="planner-results__score-note">
+                  The mini bars show relative component
+                  scores (0–100). The ranking combines
+                  tanker demand (60%) and groundwater
+                  evidence (40%). Click Why? for details.
+                </p>
+              </div>
 
               {status === "error" && (
                 <div className="error-box" role="alert">
@@ -89,11 +94,14 @@ function Planner({ capacity, setCapacity, data, status, error, retry }) {
                     {error?.message ??
                       "Could not load rankings."}
                   </p>
+
                   <button type="button" onClick={retry}>
                     Try again
                   </button>
                 </div>
               )}
+
+             
 
               <PriorityList
                 areas={data?.areas ?? null}
@@ -108,12 +116,9 @@ function Planner({ capacity, setCapacity, data, status, error, retry }) {
                   <p className="planner-results__remaining">
                     {data.available_priority_sections -
                       data.areas.length}{" "}
-                    more assessed areas are outside this selection.
-                {capacity < 23 && (
-  <DemandInsights areas={data?.areas} status={status} />
-)}
+                    more assessed areas are outside this
+                    selection.
                   </p>
-                  
                 )}
             </section>
 
@@ -146,12 +151,10 @@ function Planner({ capacity, setCapacity, data, status, error, retry }) {
   );
 }
 
-
-
-function Home({ data }) {
+function Home() {
   return (
     <>
-      <Header data={data} />
+      <Header />
 
       <section className="home-intro">
         <div className="container home-intro__content">
@@ -159,16 +162,20 @@ function Home({ data }) {
             FROM INSIGHT TO ACTION
           </span>
 
-          <h2>From water data to better decisions.</h2>
+          <h2>
+            From water data to better decisions.
+          </h2>
 
           <p>
-            Turn tanker demand and groundwater evidence into
-            clear investigation priorities — so engineers know
-            where to focus, what to examine, and what to verify.
+            Turn tanker demand and groundwater evidence
+            into clear investigation priorities — so
+            engineers know where to focus, what to
+            examine, and what to verify.
           </p>
 
           <Link to="/planner" className="home-intro__link">
-            Explore priority rankings <span>↗</span>
+            Explore priority rankings{" "}
+            <span aria-hidden="true">↗</span>
           </Link>
         </div>
       </section>
@@ -176,30 +183,30 @@ function Home({ data }) {
   );
 }
 
-
-function PageIntro({ title, description }) {
-  return (
-    <main className="container" style={{ padding: "55px 0 90px" }}>
-      <h1>{title}</h1>
-      <p style={{ maxWidth: 680 }}>{description}</p>
-    </main>
-  );
-}
-
 export default function App() {
   const [capacity, setCapacity] = useState(5);
 
-  const { status, data, error, retry } = usePriorities(capacity);
-const {
-  status: mapStatus,
-  data: mapData,
-} = usePriorities(23);
+  const {
+    status,
+    data,
+    error,
+    retry,
+  } = usePriorities(capacity);
+
+  const {
+    status: mapStatus,
+    data: mapData,
+  } = usePriorities(23);
+
   return (
     <>
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<Home data={data} />} />
+        <Route
+          path="/"
+          element={<Home />}
+        />
 
         <Route
           path="/planner"
@@ -215,17 +222,25 @@ const {
           }
         />
 
-       <Route
-  path="/explore"
-  element={<ExploreMap data={mapData} status={mapStatus} />}
-/>
+        <Route
+          path="/explore"
+          element={
+            <ExploreMap
+              data={mapData}
+              status={mapStatus}
+            />
+          }
+        />
 
         <Route
-  path="/verification"
-  element={<VerificationQueue sections={verificationData} />}
-/>
+          path="/verification"
+          element={
+            <VerificationQueue
+              sections={verificationData}
+            />
+          }
+        />
 
-      
         <Route
           path="/methodology"
           element={<Methodology />}
@@ -234,4 +249,3 @@ const {
     </>
   );
 }
-

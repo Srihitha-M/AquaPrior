@@ -191,8 +191,7 @@
 /* Right-side highlighted explanation */
 
 .planner-evidence {
-  position: sticky;
-  top: 22px;
+  position: static;
   min-width: 0;
 }
 

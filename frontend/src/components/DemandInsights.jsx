@@ -5,10 +5,9 @@ const formatNumber = (value) =>
   Number(value).toLocaleString("en-IN");
 
 export default function DemandInsights({ areas, status }) {
- console.log("DEMAND INSIGHTS:", {
+ console.log("CHART CHECK", {
   status,
   count: areas?.length,
-  areas,
 });
     if (!areas?.length) return null;
 
