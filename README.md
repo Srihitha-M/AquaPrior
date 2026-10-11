@@ -5,6 +5,7 @@
 Cities can't investigate every neighborhood at once. AquaPrior helps teams decide **where to look first**, shows **why**, and is honest about **where evidence is still missing**.
 
 **[Try the live app →](https://aqua-prior.vercel.app/)**
+![AquaPrior Homepage](screenshots/homepage.png)
 
 *Built for the WeMakeDevs **AWS Bharat Builds: Environmental Hacks** hackathon (Ship It track).*
 
@@ -34,7 +35,7 @@ AquaPrior combines both without hiding the uncertainty.
 | **Explore Map** | View the 23 assessed sections on an interactive map and click markers for their evidence. |
 | **Verification Queue** | See demand-eligible sections that lack location-linked evidence, kept visible instead of ranked on weak data. |
 | **Methodology** | Read the scoring method, assumptions, and limitations in full. |
-
+![AquaPrior Explore Map](screenshots/map_explorer.png)
 Works on desktop and mobile; desktop gives the best experience.
 
 ## Data at a glance
@@ -60,11 +61,11 @@ For the 23 assessed sections, AquaPrior uses a simple, transparent heuristic:
 Relative priority score = 60% × normalized tanker demand
                         + 40% × normalized groundwater evidence
 ```
-
-Pick a capacity, and the planner returns that many top-ranked sections. Select an area like **Kondapur** to see exactly what drives its rank: bookings, groundwater change, nearby stations, and score components.
+![AquaPrior Capacity Selection](screenshots/capacity_selection.png)
+Pick a capacity, and the planner returns that many top-ranked sections. Select an area like **Kondapur or Madhapur** to see exactly what drives its rank: bookings, groundwater change, nearby stations, and score components.
 
 > **A high score is not a shortage probability, a validated scarcity measure, or an instruction to allocate tankers.** The 60/40 weighting is an explicit prototype design choice, not a field-validated optimum.
-
+![AquaPrior Action Priorities](screenshots/action_priorities.png)
 ## Why the Verification Queue matters
 
 Of 218 demand-eligible sections, only 23 have the evidence needed for a ranking. The other 195 stay in the Verification Queue.
@@ -83,7 +84,7 @@ Of 218 demand-eligible sections, only 23 have the evidence needed for a ranking.
 | Storage | Amazon S3 | Project datasets |
 
 **Flow:** the React app on Vercel calls the Lambda Function URL with the selected capacity, and Lambda returns the ranked areas. S3 stores the datasets; it is not part of the request path, and S3 does not trigger Lambda.
-
+![AquaPrior AWS Architecture](screenshots/architecture.png)
 ## Try it in 60 seconds
 
 1. Open the **[live app](https://aqua-prior.vercel.app/)**.
@@ -119,7 +120,7 @@ npm run build
 - Map markers are **approximate locations**, not surveyed administrative boundaries.
 - Rankings compare only the 23 assessed sections under this heuristic; they don't measure absolute scarcity.
 - Field investigation and local verification are still required before any operational decision.
-
+![AquaPrior Methodology](screenshots/methodology.png)
 ---
 
 **Better water decisions begin with evidence, and with being clear about where that evidence is still missing.**
